@@ -59,32 +59,32 @@ export default function Home() {
     }
   };
 
-  // const fetchProductDetails = async (barcode) => {
-  //   try {
-  //     const response = await fetch(`/api/product?barcode=${barcode}`);
-  //     const data = await response.json();
-  //     if (data) {
-  //       setProduct(data);
-  //     } else {
-  //       setProduct({ name: "商品がマスタ未登録です", price: 0 });
-  //     }
-  //   } catch (error) {
-  //     console.error("商品取得エラー:", error);
-  //   }
-  // };
-
   const fetchProductDetails = async (barcode) => {
     try {
-      // モックデータを使用
-      const mockData = {
-        name: "モック商品",
-        price: 1000,
-      };
-      setProduct(mockData);
+      const response = await fetch(`/api/product?barcode=${barcode}`);
+      const data = await response.json();
+      if (data) {
+        setProduct(data);
+      } else {
+        setProduct({ name: "商品がマスタ未登録です", price: 0 });
+      }
     } catch (error) {
       console.error("商品取得エラー:", error);
     }
   };
+
+  // const fetchProductDetails = async (barcode) => {
+  //   try {
+  //     // モックデータを使用
+  //     const mockData = {
+  //       name: "モック商品",
+  //       price: 1000,
+  //     };
+  //     setProduct(mockData);
+  //   } catch (error) {
+  //     console.error("商品取得エラー:", error);
+  //   }
+  // };
   
 
   const addToCart = () => {
